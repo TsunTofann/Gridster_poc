@@ -1,0 +1,39 @@
+<div class="library">
+  <div class="draggable-element" *ngIf="options.enableEmptyCellDrop" draggable="true" (dragstart)="dragStartHandler($event, 'video')">Video</div>
+  <div class="draggable-element" *ngIf="options.enableEmptyCellDrop" draggable="true" (dragstart)="dragStartHandler($event, 'image')">Image</div>
+  <div class="draggable-element" *ngIf="options.enableEmptyCellDrop" draggable="true" (dragstart)="dragStartHandler($event, 'text')">Text</div>
+</div>
+<div class="frame">
+  <gridster class="gridster" [options]="options">
+    <gridster-item #gridsterItem [item]="item" *ngFor="let item of dashboard;let index = index;">
+      <div>
+
+        <span>LayerIndex: <span style="margin-left: 10px; color: blueviolet">{{item.layerIndex === undefined ? 1 : item.layerIndex}}</span></span>
+
+        <div class="button-holder">
+          <span>
+            element {{index}}
+          </span>
+          <span>
+            {{item.type}}
+          </span>
+          <button mat-mini-fab (mousedown)="removeItem($event, item)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </gridster-item>
+  </gridster>
+</div>
+<div class="elements-list">
+  <div *ngFor="let item of dashboard;let index = index;">
+    element {{index}}
+    <button (click)="incrementIndex(item)">
+      +
+    </button>
+    {{item.layerIndex}}
+    <button (click)="decrementIndex(item)">
+      -
+    </button>
+  </div>
+</div>

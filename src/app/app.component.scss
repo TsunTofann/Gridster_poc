@@ -12,6 +12,7 @@ app-root {
 .frame{
   width: 1080px;
   height: 1920px;
+  transform: scale(1);
 }
 
 .draggable-element{
@@ -50,6 +51,7 @@ gridster-item div.button-holder {
 }
 gridster-item {
   border: orange 3px dashed;
+  background: rgba(0, 0, 255, 0.1) !important; /* un arrière plan bleu à 50% de transparence */
 }
 
 .options {

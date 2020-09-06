@@ -60,18 +60,19 @@ export class AppComponent implements OnInit{
     };
 
     this.dashboard = [
-      {type: 'video', cols: 100, rows: 100, y: 0, x: 0, layerIndex: 2, maxItemCols: 500, maxItemRows: 500, maxItemArea: 250000},
+      // {type: 'video', cols: 1080, rows: 1920, y: 0, x: 0, layerIndex: 2, maxItemCols: 1080, maxItemRows: 1920, maxItemArea: 2073600},
       {type: 'text', cols: 100, rows: 100, y: 10, x: 10, layerIndex: 1, maxItemCols: 500, maxItemRows: 500, maxItemArea: 250000},
     ];
   }
 
-  emptyCellClick(event: MouseEvent, item: Element): void {
+  emptyCellClick(event: DragEvent, item: Element): void {
     item.maxItemArea = 250000;
     item.maxItemRows = 500;
     item.maxItemCols = 500;
     item.cols = 100;
     item.rows = 100;
     item.layerIndex = 1;
+    item.type = event.dataTransfer.getData('type');
     // tslint:disable-next-line:no-console
     console.info('empty cell click', event, item);
     this.dashboard.push(item);
@@ -101,6 +102,7 @@ export class AppComponent implements OnInit{
     if (ev.dataTransfer) {
       ev.dataTransfer.setData('text/plain', 'Drag Me Button');
       ev.dataTransfer.dropEffect = 'copy';
+      ev.dataTransfer.setData('type', type);
     }
   }
 

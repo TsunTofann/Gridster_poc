@@ -109,14 +109,10 @@ export class AppComponent implements OnInit{
   incrementIndex(item: Element): void {
     ++item.layerIndex;
     this.changedOptions();
-    // this.dashboard.splice(this.dashboard.indexOf(item), 1);
-    // this.dashboard.push(item);
   }
 
   decrementIndex(item: Element): void {
     --item.layerIndex;
     this.changedOptions();
-    // this.dashboard.splice(this.dashboard.indexOf(item), 1);
-    // this.dashboard.push(item);
   }
 }

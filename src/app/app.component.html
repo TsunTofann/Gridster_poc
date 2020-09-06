@@ -2,6 +2,7 @@
   <div class="draggable-element" *ngIf="options.enableEmptyCellDrop" draggable="true" (dragstart)="dragStartHandler($event, 'video')">Video</div>
   <div class="draggable-element" *ngIf="options.enableEmptyCellDrop" draggable="true" (dragstart)="dragStartHandler($event, 'image')">Image</div>
   <div class="draggable-element" *ngIf="options.enableEmptyCellDrop" draggable="true" (dragstart)="dragStartHandler($event, 'text')">Text</div>
+  {{dashboard | json}}
 </div>
 <div class="frame">
   <gridster class="gridster" [options]="options">
